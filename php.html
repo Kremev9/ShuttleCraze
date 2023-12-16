@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="phpp.css">
+    <title>Contact Form</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="search-container">
+        </div>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span style="color:white;font-weight:bold">SHUTTLE<span style="color:#E6CC00;font-weight:bold">CRAZE</span>
+        </div>
+        <a href="php.html">CONTACT</a>
+        <a href="history2.html">HISTORY</a>
+        <a href="topplayers.html">TOP PLAYERS</a><!-- Add the TOP PLAYERS button here -->
+        <a href="equipments2.html">EQUIPMENTS</a>
+        <a href="basics2.html">BASICS</a>
+        <a href="homepage2.html">HOME</a>
+    </div>
+<div class="container">
+    <h2>Contact Form</h2>
+    <form method="post" action="process.php">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <button type="submit" name="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>

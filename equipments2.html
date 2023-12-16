@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHUTTLECRAZE</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Bebas Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+        }
+
+        h1, h2 {
+            font-family: 'Nexa Heavy', sans-serif;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            font-size: 20px;
+            float: right;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 10px; /* Adjusted padding for smaller screens */
+            text-decoration: none;
+            margin-right: 16px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+		
+		.navbar a:nth-child(3) {
+			margin-right: 16px; /* Adjusted margin for the new button */
+		}
+
+        /* Logo and Name Styles */
+        .logo-container {
+            font-size: 40px; /* Adjusted font size for smaller screens */
+            float: left;
+            padding: 0px 10px; /* Adjusted padding for smaller screens */
+        }
+
+        .logo {
+            width: 40px; /* Adjusted logo size for smaller screens */
+            height: auto;
+        }
+
+        .name {
+            color: white;
+            font-weight: bold;
+            margin-left: 5px; /* Adjusted margin for smaller screens */
+            font-size: 14px; /* Adjusted font size for smaller screens */
+            vertical-align: middle;
+        }
+
+        /* Search Box Styles */
+        .search-container {
+            float: right;
+            margin-top: 20px; /* Adjusted margin for smaller screens */
+            margin-right: 10px; /* Adjusted margin for smaller screens */
+        }
+
+        .search-input {
+            padding: 6px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Photo Styles */
+        .photo-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .photo {
+            width: 100%;
+            height: auto; /* Changed height to auto for responsiveness */
+        }
+
+        .photo-text {
+            font-size: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            padding: 10px;
+            background: none;
+        }
+
+        .highlight {
+            color: white;
+        }
+
+        /* Video Styles */
+        .video {
+            width: 100%;
+        }
+
+        /* Page Content Styles */
+        .content {
+			font-family: 'Nexa Heavy', sans-serif;
+            margin-top: 20px;
+            padding: 20px;
+            color: white;
+			font-size: 40px;
+			
+        }
+		
+		.text2 {
+			font-family: 'Nexa Heavy', sans-serif;
+			color: white;
+			font-size: 30px;
+		}
+		
+        .bgblack {
+            border: 2px solid white;
+            padding: 5px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        .about {
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .footer img {
+            width: 80px; /* Adjusted image size for smaller screens */
+            height: auto;
+        }
+
+        .footer .contact {
+            text-align: left;
+			font-family: 'Nexa Heavy', sans-serif;
+            max-width: 375px; /* Set maximum width for better responsiveness */
+        }
+		
+		.footer .references {
+			text-align: left;
+			font-family: 'Nexa Heavy', sans-serif;
+			max-width: 375px; /* Set maximum width for better responsiveness */
+        }
+		
+		.content img.photo-content {
+            width: 100%; /* Set the default width for responsiveness */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 650px; /* Set the maximum width for larger screens */
+            margin: 0 auto; /* Center the image */
+            display: block; /* Remove default inline spacing */
+        }
+
+        /* New styles for the added images and text */
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+			margin-left: 50px;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .image-text {
+            font-size: 30px;
+            color: white;
+            max-width: 60%;
+        }
+
+        .image {
+            width: 40%;
+            margin-bottom: 20px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .navbar a {
+                font-size: 16px;
+                padding: 15px 8px;
+            }
+
+            .logo-container {
+                font-size: 24px;
+                padding: 0px 8px;
+            }
+
+            .logo {
+                width: 30px;
+            }
+
+            .name {
+                margin-left: 5px;
+                font-size: 12px;
+            }
+
+            .search-container {
+                margin-top: 10px;
+                margin-right: 5px;
+            }
+
+            .photo-text {
+                font-size: 24px;
+                padding: 5px;
+            }
+
+            .footer img {
+                width: 60px;
+            }
+
+            .image {
+                width: 100%;
+            }
+
+            .image-text {
+                font-size: 24px;
+            }
+			
+			.content img.photo-content {
+                max-width: 100%; /* Adjust the maximum width for smaller screens */
+            }
+        }
+		
+		a:link {
+			color: white;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:visited {
+			color: white;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #E6CC00;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		a:active {
+			color: #E6CC00;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="search-container">
+        </div>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span style="color:white;font-weight:bold">SHUTTLE<span style="color:#E6CC00;font-weight:bold">CRAZE</span>
+        </div>
+		<a href="php.html">CONTACT</a>
+        <a href="history2.html">HISTORY</a>
+        <a href="topplayers.html">TOP PLAYERS</a><!-- Add the TOP PLAYERS button here -->
+        <a href="equipments2.html">EQUIPMENTS</a>
+        <a href="basics2.html">BASICS</a>
+        <a href="homepage2.html">HOME</a>
+    </div>
+
+     <!-- Photo with Text -->
+    <div class="photo-container">
+        <img src="fullsize3.jpg" alt="Your Photo" class="photo">
+        <div class="photo-text">
+            <span style="color:black;font-weight:bold"><br>EQUIPMENTS</span>
+        </div>
+    </div>
+	
+     <!-- Page Content -->
+    <div class="content">
+		<hr>
+        <p><center>How to Choose the Best Badminton Equipment Wisely</center></p>
+        <hr>
+        <p><center>Choosing the right badminton equipment is important.</center></p>
+			<div class="text2">
+				<p>
+				<center>
+					Whether you’re a serious athlete or just playing for fun, good equipment helps you:
+					<br>
+					<br>
+				</center>
+				<center>
+					Maximise your performance
+					<br>
+					Prevent injuries
+					<br>
+					<br>
+					Selecting the right equipment may involve a lot of work.
+					There’re too many brands and too many choices in badminton shops today. 
+					That’s why this page has all the information you need on choosing the right badminton equipments.
+				</center>
+				</p>
+			</div>
+		<p><center>Price</center></p>
+			<div class="text2">
+				<p>
+				<center>
+					Badminton is an expensive game. Unlike soccer where you can start playing with one ball in an open field, a badminton racket itself will cost you a lot. 
+					However, I’ll guide you to choose the best priced and high quality rackets; and only mention the important equipments that will greatly assist you with higher performance and preventing injuries.
+				</center>
+				</p>
+			</div>
+		<p><center>Suitable Equipment</center></p>
+			<div class="text2">
+				<p>
+				<center>
+					Choosing suitable equipment to match your style of playing is the KEY TO MAXIMISING YOUR PERFORMANCE. 
+					If you choose your badminton racket based on what your favourite player is currently using, you’re making a big mistake!
+					<br>
+					Some equipment may be suitable for you and some may not. For example, a power racket helps world class players execute strong smashes.
+					But if a beginner uses a power racket, he/she might not be able to perform well and could possibly inflict self injury because a power racket is heavier compared to a control racket.
+				</center>
+				</p>
+			</div>
+		<p><center>Why is it important?</center></p>
+			<div class="text2">
+				<p>
+				<center>
+					If you play badminton regularly and intensely, there’s a higher chance of injury if you don’t have suitable equipment for badminton.
+					It’ll be worthwhile to invest in decent badminton equipment if you enjoy the game and want quicker improvement.
+				</center>
+				</p>
+			</div>
+		<hr>
+        <p><center>How to Choose a Good Badminton Racket</center></p>
+        <hr>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="parts.jpg" alt="parts Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+					This page offers you a guide on how to choose your own badminton racket.
+					A common mistake made by most people is that they use the racket that their favourite badminton player uses.
+					Different people have different styles of playing badminton. 
+					Some rackets may be suitable for some but not for others.
+					Use a racket that works to your strengths!
+					<br>
+					<br>
+					Before you choose your own badminton racket, ask yourself whether you want to play a game of POWER or CONTROL (i.e. using a power racket or control racket)
+					You cannot have both power and control in one racket. However, you can choose to have a balance of both.
+				</p>
+			</div>
+		</div>
+		<p><center>Estimated price for abadminton racket</center></p>
+			<div class="text2">
+					<p>
+					<center>
+						The price of a decent badminton racket in the Philippines can vary widely depending on the brand, materials, and features.
+						However, as of my last knowledge update in September 2021, you could expect to pay anywhere from PHP 1,500 to PHP 5,000 for a good quality badminton racket.
+						Prices for premium or professional-level rackets may exceed this range. 
+						It's advisable to check with local sports stores or online retailers for the most current pricing information.
+					</center>
+				</p>
+			</div>
+		<p><center>How do you know whether a badminton racket is good?</center></p>
+			<div class="text2">
+					<p>
+					<center>
+						When choosing your badminton racket in a shop, you can do a few simple things to test the quality of the racket.
+					</center>
+				</p>
+			</div>
+		<p><center>Stiffness/Flexibility</center></p>
+			<div class="image-container" style="margin-bottom: 10px;">
+				<div class="image">
+					<img src="stiff.jpg" alt="stiff Photo" class="photo-content">
+				</div>
+				<div class="image-text">
+					<p>
+						Hold both ends of the racket and bend it slightly -please be gentle when you’re in the shop.
+						If the racket is easily bent, it has a flexible shaft or otherwise, a stiff shaft.
+					</p>
+				</div>
+			</div>
+		<p><center>Accuracy in Placing Shots</center></p>
+			<div class="image-container" style="margin-bottom: 10px;">
+				<div class="image">
+					<img src="twist.jpg" alt="twist Photo" class="photo-content">
+				</div>
+				<div class="image-text">
+					<p>
+						Hold the racket handle with one hand and use your other hand to twist the head of the racket sideways. 
+						If the head of the racket does not twist, it’s perfect for shot placement. Flight direction is more certain when the racket head does not twist easily.
+					</p>
+				</div>
+			</div>
+		<hr>
+		<p><center>Things to Consider When Choosing Your Own Badminton Racket</center></p>
+		<hr>
+		<p><center>1. Weight</center></p>
+			<div class="text2">
+					<p>
+						<center>
+							With today’s technology, a good badminton racket should weigh 85 -92g (without the string and grip).
+							A heavy racket is considered a power racket. Heavier rackets accumulate more momentum during your badminton swing, hence giving you more power.
+							The downside is that a heavier badminton racket is harder to control. It’s also less comfortable handling a heavy racket.
+							Therefore, if you want to play a game of control, lighter rackets will be perfect for you.
+							<br>
+							<br>
+							Sometimes, the weight of a racket is classified into a few categories, namely:
+							<br>
+							2U: 90-94g
+							<br>
+							3U: 85-89g
+							<br>
+							4U: 80-84g
+							<br>
+							5U: 75-79g
+							<br>
+							<br>
+							3Us and 2Us are common in the market, whereas 4U and 5U are rare.
+							The weights described above do not include the weight of the badminton string and the grip.
+							Therefore, when you’re testing a badminton racket in a shop, take into account that the racket will be heavier after you string it and add a replacement grip.
+					</center>
+				</p>
+			</div>
+		<p><center>2. Balance Point</center></p>
+			<div class="text2">
+					<p>
+						<center>
+							This is the point on the badminton shaft that indicates the CENTER of the badminton racket.
+							If your finger is closer to the racket head, it has a HIGHER balance point. Therefore it’s more of a POWER racket.
+							If your finger is closer to the racket handle, it has a LOWER balance point. Therefore it’s more of a CONTROL racket.
+							You can adjust the balance point of your racket to suit your playing style even after you have purchased the racket.
+							If you prefer more control
+						</center>
+					</p>
+			</div>
+			<div class="image-container" style="margin-bottom: 10px;">
+				<div class="image">
+					<img src="bp.jpg" alt="bp Photo" class="photo-content">
+				</div>
+					<div class="image-text">
+						<p>
+						<center>
+							You may add more weight on the handle:
+							<br>
+							Wrap 2 badminton grips
+							<br>
+							Wrap a heavier badminton grip
+							<br>
+							Use lighter/thinner badminton string
+							<br>
+							<br>
+							If you prefer more power,
+							You may add more weight on the racket head:
+							Wrap a lightweight badminton grip
+							After making some weight adjustments to your racket, you can always use the same test above to identify the balance point of the racket.
+							In order to create a more suitable racket for yourself, read more on badminton strings and badminton grips.
+						</center>
+						</p>
+					</div>
+			</div>
+			<p><center>3. Stiffness of Shaft</center></p>
+			<div class="text2">
+					<p>
+						<center>
+							When you’re choosing a badminton racket, you have a choice between a flexible or stiff racket shaft.
+							A flexible shaft can bend easily, whereas a stiff shaft can hardly bend.
+							Before buying a baminton racket, pay attention to the stiffness of your racket. You can adjust the weight and balance point of a racket after the purchase. But the stiffness of the racket is fixed.
+							However, a racket shaft, like all other equipments, will ‘season’. This means that over time, it’ll become less stiff to a certain extent.
+						</center>
+					</p>
+			</div>
+			<p><center>4. Shape of the Frame</center></p>
+			<div class="text2">
+					<p>
+						<center>	
+							When buying a badminton racket, choose between an isometric (squarish) frame and a conventional (oval) frame.
+							<br>
+							The only difference between an isometric and conventional frame is the SWEET SPOT.
+						</center>
+					</p>
+			</div>
+			<p><center>Isometric Frames</center></p>		
+				<div class="image-container" style="margin-bottom: 10px;">
+					<div class="image">
+						<img src="iso.jpg" alt="iso Photo" class="photo-content">
+					</div>
+						<div class="image-text">
+							<p>
+								Has a larger sweet spot. Therefore there’s a much higher chance that you’ll perform more quality shots.
+							</p>
+						</div>
+				</div>	
+			<p><center>Conventional Frames</center></p>		
+				<div class="image-container" style="margin-bottom: 10px;">
+					<div class="image">
+						<img src="conve.jpg" alt="conve Photo" class="photo-content">
+					</div>
+						<div class="image-text">
+							<p>		
+								Has a smaller sweet spot. However if the shuttle lands on the sweet spot, it would be a very high quality shot.
+								Conventional frames are rarely present in the marketplace today because most people prefer isometric shaped rackets
+							</p>
+						</div>
+				</div>	
+			<hr>
+			<p><center>Badminton Shoes</center></p>
+			<hr>
+			<div class="image-container" style="margin-bottom: 10px;">
+				<div class="image">
+					<img src="shoe.jpg" alt="shoe Photo" class="photo-content">
+				</div>
+					<div class="image-text">
+						<p>		
+							Badminton shoes are specialized athletic footwear designed for playing the sport of badminton. They feature several key characteristics:
+							<br>
+							<br>
+							Non-Marking Soles: Badminton shoes have soles that do not leave marks on the court, helping maintain its surface.
+							<br>
+							Lightweight: They are typically lightweight to enable quick and agile movements on the court.
+							<br>
+							Good Traction: Badminton shoes provide excellent grip to prevent slipping, allowing players to make rapid changes in direction.
+							<br>
+							Cushioning: They offer cushioning and shock absorption to reduce the impact on the player's feet and joints during fast-paced rallies.
+							<br>
+							Stability: These shoes provide lateral support to help maintain balance and stability during sudden movements.
+							<br>
+							<br>
+							Overall, badminton shoes are designed to enhance a player's performance and reduce the risk of injuries while playing the sport.
+						</p>
+					</div>
+			</div>	
+			<p><center>Estimated price for badminton shoes</center></p>
+			<div class="text2">
+					<p>
+						<center>		
+							As of my last knowledge update in September 2021, badminton shoes in the Philippines can range in price from around 1,000 to 10,000 Philippine Pesos (PHP), depending on their quality and features.
+							However, prices may have changed, and it's advisable to check with local retailers for current pricing.
+						</center>
+					</p>
+			</div>
+			<hr>
+			<p><center>Badminton String</center></p>
+			<hr>
+			<div class="image-container" style="margin-bottom: 10px;">
+				<div class="image">
+					<img src="string.jpg" alt="string Photo" class="photo-content">
+				</div>
+					<div class="image-text">
+						<p>
+							Badminton strings are a crucial component of a badminton racket, and they determine the performance of the racket.
+							They come in various materials, thicknesses, and tensions, allowing players to customize their playing style.
+							Strings can impact power, control, and durability.
+						</p>
+					</div>
+			</div>	
+			<p><center>Estimated price for badminton strings</center></p>
+			<div class="text2">
+					<p>
+						<center>
+						As for the estimated price of badminton strings in the Philippines, it can vary depending on factors like brand and material.
+						As of my last knowledge update in September 2021, you might find badminton strings in the range of 200 to 800 Philippine Pesos (PHP) per set.
+						High-end or premium strings can be even more expensive.
+						Prices may have changed since then, so it's recommended to check with local retailers or online stores for the most current pricing information.
+						</center>
+					</p>
+			</div>
+			<hr>
+			<p><center>Badminton Grip</center></p>
+			<hr>
+			<div class="image-container" style="margin-bottom: 10px;">
+				<div class="image">
+					<img src="grip.jpg" alt="grip Photo" class="photo-content">
+				</div>
+					<div class="image-text">
+						<p>
+							A badminton grip is an essential component of a racket, providing players with a comfortable and secure hold.
+							It helps prevent slipping and offers better control and feel while playing.
+						</p>
+					</div>
+			</div>	
+			<p><center>Estimated price for badminton grips</center></p>
+			<div class="text2">
+					<p>
+						<center>
+							As for the estimated price of badminton grips in the Philippines, they are usually affordable and can cost around 50 to 200 Philippine Pesos (PHP) per grip, depending on the brand and quality. <br>
+							Prices may vary based on factors such as material and design, but this price range should give you a general idea. <br>
+							It's always a good idea to check with local sports stores or online retailers for the most up-to-date pricing information.
+						</center>
+					</p>
+			</div>
+			<hr>
+			<p><center>Badminton Shuttlecocks</center></p>
+			<hr>
+			<div class="image-container" style="margin-bottom: 10px;">
+				<div class="image">
+					<img src="shuttle.jpg" alt="shuttle Photo" class="photo-content">
+				</div>
+					<div class="image-text">
+						<p>
+							A badminton shuttle, also known as a shuttlecock, is the essential projectile used in the sport of badminton.
+							It is designed with a cone-shaped body, often made of feathers or plastic, and a rounded cork or synthetic tip.
+							Players use badminton rackets to hit the shuttle over the net in an attempt to score points.
+							The shuttlecock's unique aerodynamic properties make it suitable for fast-paced rallies and precise shots in the game of badminton.
+						</p>
+					</div>
+			</div>	
+			<p><center>Estimated price for badminton shuttlecocks</center></p>
+			<div class="text2">
+					<p>
+						<center>
+							The price of badminton shuttlecocks in the Philippines can vary depending on factors such as the type of shuttlecock and its quality. As of my last knowledge update in September 2021, here's a rough estimate:
+							<br>
+							<br>
+							Feathered Shuttlecocks: A tube of high-quality feathered shuttlecocks, typically used in competitive play, can cost around 500 to 1,500 Philippine Pesos or more, depending on the brand and feather quality.
+							<br>
+							Plastic Shuttlecocks: Plastic shuttlecocks, designed for recreational play and durability, are more affordable. A tube of plastic shuttlecocks can cost around 150 to 300 Philippine Pesos.
+							<br>
+							<br>
+							Please note that prices may have changed since my last update. It's advisable to check with local sports stores or online retailers for the most current prices and options in the Philippines.
+						</center>
+					</p>
+			</div>
+			<hr>
+			<p><center>Badminton Apparel and Shorts</center></p>
+			<hr>
+			<div class="image-container" style="margin-bottom: 10px;">
+				<div class="image">
+					<img src="apparel.jpg" alt="apparel Photo" class="photo-content">
+				</div>
+					<div class="image-text">
+						<p>
+							Badminton apparel and shorts are specialized clothing designed for players in the sport of badminton.
+							These garments are engineered to provide comfort, mobility, and sweat-wicking properties to enhance a player's performance on the court.
+							Badminton apparel typically includes lightweight shirts, often with moisture-wicking technology to keep players dry, and shorts designed for freedom of movement.
+							The choice of materials, such as breathable fabrics, plays a crucial role in maintaining comfort during matches.
+							Additionally, some apparel may feature branding or designs specific to the sport, helping players look and feel their best while competing in badminton.
+						</p>
+					</div>
+			</div>	
+			<p><center>Estimated price for badminton apparel and shorts</center></p>
+			<div class="text2">
+					<p>
+						<center>
+							The price of badminton apparel and shorts in the Philippines can vary widely based on factors like brand, material, and design. As of my last knowledge update in September 2021, here's a rough estimate:
+							<br>
+							<br>
+							Badminton Shirts: You can find badminton shirts ranging from around 300 to 1,500 Philippine Pesos or more, depending on the brand and the specific features like moisture-wicking technology.
+							<br>
+							Badminton Shorts: Badminton shorts typically cost between 300 to 1,000 Philippine Pesos or more, depending on the brand and design.
+							<br>
+							<br>
+							These prices are approximate and may have changed since my last update. It's recommended to check with local sports stores, online retailers, or the official websites of popular badminton clothing brands for the most current prices and options in the Philippines.
+						</center>
+					</p>
+			</div>
+			<hr>
+						
+	</div>
+
+   <!-- Footer -->
+    <div class="footer">
+        <img src="logo.png" alt="Footer Logo">
+        <div class="contact">
+            <p>
+				If you have any questions or inquiries, 
+				<br>feel free to get in touch with us:
+				<br>Email: arvinjohnalamis@su.edu.ph
+				<br>Phone: 09606772879
+				<br>Address: Purok Talong, Tabuc-tubig, Dumaguete City, Negros Oriental
+			</p>
+        </div>
+        <div class="references">
+            <p>			
+				References and Copyrights:
+				<br>
+				<a href="https://masterbadminton.com">www.masterbadminton.com</a>
+				<br>
+				<a href="https://wikipedia.com">www.wikipedia.com</a>
+				<br>
+				<a href="https://www.youtube.com/watch?v=BJuJbdjRzIc">&copy; Red Bull</a>
+				<br>
+				<a href="https://sportsmatik.com/">&copy; Sportsmatik</a>
+				<br>
+				<a href="homepage2.html">&copy; 2023 ShuttleCraze</a>
+			</p>
+		</div>
+    </div>
+</body>
+</html>

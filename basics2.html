@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHUTTLECRAZE</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Bebas Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+        }
+
+        h1, h2 {
+            font-family: 'Nexa Heavy', sans-serif;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            font-size: 20px;
+            float: right;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 10px; /* Adjusted padding for smaller screens */
+            text-decoration: none;
+            margin-right: 16px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+		
+		.navbar a:nth-child(3) {
+			margin-right: 16px; /* Adjusted margin for the new button */
+		}
+
+        /* Logo and Name Styles */
+        .logo-container {
+            font-size: 40px; /* Adjusted font size for smaller screens */
+            float: left;
+            padding: 0px 10px; /* Adjusted padding for smaller screens */
+        }
+
+        .logo {
+            width: 40px; /* Adjusted logo size for smaller screens */
+            height: auto;
+        }
+
+        .name {
+            color: white;
+            font-weight: bold;
+            margin-left: 5px; /* Adjusted margin for smaller screens */
+            font-size: 14px; /* Adjusted font size for smaller screens */
+            vertical-align: middle;
+        }
+
+        /* Search Box Styles */
+        .search-container {
+            float: right;
+            margin-top: 20px; /* Adjusted margin for smaller screens */
+            margin-right: 10px; /* Adjusted margin for smaller screens */
+        }
+
+        .search-input {
+            padding: 6px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Photo Styles */
+        .photo-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .photo {
+            width: 100%;
+            height: auto; /* Changed height to auto for responsiveness */
+        }
+
+        .photo-text {
+            font-size: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            padding: 10px;
+            background: none;
+        }
+
+        .highlight {
+            color: white;
+        }
+
+        /* Video Styles */
+        .video {
+            width: 100%;
+        }
+
+        /* Page Content Styles */
+        .content {
+			font-family: 'Nexa Heavy', sans-serif;
+            margin-top: 20px;
+            padding: 20px;
+            color: white;
+			font-size: 40px;
+			
+        }
+
+        .bgblack {
+            border: 2px solid white;
+            padding: 5px;
+            background: blackbg.jpg;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        .about {
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .footer img {
+            width: 80px; /* Adjusted image size for smaller screens */
+            height: auto;
+        }
+
+        .footer .contact {
+            text-align: left;
+			font-family: 'Nexa Heavy', sans-serif;
+            max-width: 375px; /* Set maximum width for better responsiveness */
+        }
+		
+		.footer .references {
+			text-align: left;
+			font-family: 'Nexa Heavy', sans-serif;
+			max-width: 375px; /* Set maximum width for better responsiveness */
+        }
+		
+		.content img.photo-content {
+            width: 100%; /* Set the default width for responsiveness */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 650px; /* Set the maximum width for larger screens */
+            margin: 0 auto; /* Center the image */
+            display: block; /* Remove default inline spacing */
+        }
+
+        /* New styles for the added images and text */
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+			margin-left: 50px;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .image-text {
+            font-size: 30px;
+            color: white;
+            max-width: 60%;
+        }
+
+        .image {
+            width: 40%;
+            margin-bottom: 20px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .navbar a {
+                font-size: 16px;
+                padding: 15px 8px;
+            }
+
+            .logo-container {
+                font-size: 24px;
+                padding: 0px 8px;
+            }
+
+            .logo {
+                width: 30px;
+            }
+
+            .name {
+                margin-left: 5px;
+                font-size: 12px;
+            }
+
+            .search-container {
+                margin-top: 10px;
+                margin-right: 5px;
+            }
+
+            .photo-text {
+                font-size: 24px;
+                padding: 5px;
+            }
+
+            .footer img {
+                width: 60px;
+            }
+
+            .image {
+                width: 100%;
+            }
+
+            .image-text {
+                font-size: 24px;
+            }
+			
+			.content img.photo-content {
+                max-width: 100%; /* Adjust the maximum width for smaller screens */
+            }
+        }
+		
+		a:link {
+			color: white;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:visited {
+			color: white;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #E6CC00;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		a:active {
+			color: #E6CC00;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="search-container">
+        </div>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span style="color:white;font-weight:bold">SHUTTLE<span style="color:#E6CC00;font-weight:bold">CRAZE</span>
+        </div>
+		<a href="php.html">CONTACT</a>
+        <a href="history2.html">HISTORY</a>
+        <a href="topplayers.html">TOP PLAYERS</a><!-- Add the TOP PLAYERS button here -->
+        <a href="equipments2.html">EQUIPMENTS</a>
+        <a href="basics2.html">BASICS</a>
+        <a href="homepage2.html">HOME</a>
+    </div>
+
+     <!-- Photo with Text -->
+    <div class="photo-container">
+        <img src="fullsize3.jpg" alt="Your Photo" class="photo">
+        <div class="photo-text">
+            <span style="color:black;font-weight:bold"><br>BASICS</span>
+        </div>
+    </div>
+	
+     <!-- Page Content -->
+    <div class="content">
+		<hr>
+        <p><center>Badminton Gripping Technique</center></p>
+        <hr>
+        <p><center>How to Hold a Badminton Racket:</center></p>
+		<br>
+        <!-- Added image and text container 1 -->
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="hand.jpg" alt="Hand Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>The correct way of holding a racquet is as simple as a FRIENDLY HANDSHAKE. Imagine the grip of the racquet as a hand approaching to shake your hand. Go ahead and hold the racquet as if you’re shaking someone’s hand.</p>
+			</div>
+		</div>
+
+		<!-- Added image and text container 2 -->
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="hand1.jpg" alt="Hand1 Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+					Your thumb should be pressing comfortably against one of the wider surfaces of the racquet grip while the rest of your hand holds the racquet as if you’re shaking a person’s hand.
+				<br> 
+				<br>
+					The way you hold your racket can affect the flexibility of your wrist.
+				<br>
+				<br>
+					In order to execute strong badminton strokes with high accuracy, your wrist needs to be flexible.
+				<br>
+				<br>
+					To achieve this, make sure you:
+				<br>
+				<br>
+					Do not grip your racquet too tightly. This will make your wrist less flexible in rotating and flicking.<br><br>
+					Use ONLY your thumb, index, and middle finger to control the racket. 
+					Your last 2 fingers should rest comfortably on the badminton grip to balance the weight of the racquet. 
+					By doing this, it enables your wrist to be more flexible and move more freely.
+				</p>
+			</div>
+		</div>
+		<br>
+		<p><center>Forehand Badminton Gripping Technique</center></p>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="fore.jpg" alt="forehand Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+					Your thumb does not necessarily have to press against the wider surface of the badminton grip for a forehand stroke.
+					<br>
+					<br>
+					Your index finger should be the one “in control” in a forehand stroke. 
+					<br>
+					<br>
+					This simply means using your index finger to push the racquet forward while doing a forehand stroke.
+					<br>
+					<br>
+					However, rest your thumb comfortably anywhere near the wider surface of the badminton grip to enable you to change to a backhand grip quickly.
+				</p>
+			</div>
+		</div>
+		<br>
+		<p><center>Backhand Badminton Gripping Technique</center></p>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="back.jpg" alt="backhand Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+					The key to perform strong backhands depends on how you hold your racquet. The true power of a badminton backhand shot comes from the push of your thumb.
+					<br>
+					<br>
+					A backhand stroke requires you to USE YOUR THUMB. So you should now press your thumb on the wider surface of the badminton grip. 
+					<br>
+					<br>
+					Relax your index finger and move it closer to your middle finger.
+					<br>
+					<br>
+					The backhand grip will look like you’re doing a ‘thumbs up’.
+				</p>
+			</div>
+		</div>
+		<hr>
+        <p><center>Effective Badminton Footwork: A Complete Guide for Beginners</center></p>
+        <hr>
+				<p><center>
+					Many people neglect badminton footwork because it might not seem important at all.
+					<br>
+					You might hear some people say “why care about footwork when I can do a 300km/h smash”. 
+					<br>
+					<br>
+					Are you thinking that way too?
+					<br>
+					<br>
+					However I would say that the footwork is THE most important skill you should master. 
+					<br>
+					It’s even more important than smashing!
+					<br>
+					<br>
+					This is because an effective and organised footwork provides superb speed and 
+					<br>
+					agility which enables the player to move around the badminton court swiftly and return every shuttlecock. 
+					<br>
+					So what if you can do a 300km/h smash when you cannot even reach the shuttlecock in time?
+					<br>
+					<br>
+					Playing badminton is all about speed. 
+					<br>
+					The shuttlecock can move extremely fast and you must move faster than the shuttlecock to be able to hit it.
+				</center></p>
+		<hr>
+		<p><center>Effective Movement On the Court</center></p>
+		<hr>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="foot.jpg" alt="footwork Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+					Always remember your base (starting point) will be at the red dot in the middle. The arrows indicates the possible movements around the court.
+					<br>
+					<br>
+					Every time you move away from your base to hit the shuttle, you MUST QUICKLY return to your base to prepare yourself for your opponent’s shot
+					<br>
+					<br>
+					For instance, you move to point A to take a shuttle and then stay there. Your opponent then returns the shuttle back to you at point B. You are less likely able to get to point B in time from point A.
+					<br>
+					<br>
+					Conversely, if you quickly return to your base after hitting the shuttle at point A, you will definitely be able to return the shuttle at point B.
+				</p>
+			</div>
+		</div>
+		<hr>
+        <p><center>Badminton Strokes</center></p>
+        <hr>
+			<p><center>
+				It’s VERY IMPORTANT to perform your badminton strokes correctly in order to execute quality badminton shots.
+				<br>
+				<br>
+				Remember, you MUST master these basic strokes in order to play like a pro!
+				<br>
+				<br>
+				Basically a stroke is the swing motion of your racket arm. 
+				<br>
+				It is not a badminton shot. However you’ll need to perform these strokes to hit certain shots.
+				<br>
+				<br>
+				The power of any badminton shot comes from how well you perform your  strokes (swing motion). 
+				<br>
+				A beginner should FIRST learn how to perform the CORRECT strokes.
+			</center></p>
+		<hr>
+		<p><center>The basic strokes are:</center></p>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="stroke.jpg" alt="stroke Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+					<a href="https://masterbadminton.com/badminton-forehand-stroke.html"><center>Overhead Forehand Stroke</center></a>
+					<br>
+					<a href="https://masterbadminton.com/badminton-backhand-stroke.html"><center>Overhead Backhand Stroke</center></a>
+					<br>
+					<a href="https://masterbadminton.com/badminton-underarm-forehand.html"><center>Underarm Forehand Stroke</center></a>
+					<br>
+					<a href="https://masterbadminton.com/badminton-underarm-backhand.html"><center>Underarm Backhand Stroke</center></a>
+					<br>
+					Why is it important to perform the correct strokes from the start?
+					<br>
+					<br>
+					It is impossible to hit strong backhand shots in badminton if you perform the wrong backhand stroke.
+					<br>
+					<br>
+					<center>
+					Let’s look at an example…
+					</center>
+					<br>
+					John did not learn the correct badminton backhand stroke and have been hitting backhands using ‘his own style’ for several years.
+					<br>
+					<br>
+					After few years of wrong backhand stroke technique, John finds it difficult to ‘re-learn’ the correct backhand stroke technique. 
+					<br>
+					<br>
+					He is already too used to the wrong technique.He has developed a bad habit!
+					</p>
+			</div>
+		</div>
+		<hr>
+        <p><center>Badminton Serve</center></p>
+        <hr>
+			<p>
+			<center>
+				A badminton serve can be performed using 2 methods (high serve and low serve), 
+				<br>
+				depending on where you want the shuttlecock to land.
+				<br>
+				There are certain rules that you must follow when making a service.
+			</center>
+			</p>
+		<hr>
+		<p><center>1. The High Badminton Serve</center></p>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="high.jpg" alt="high serve Photo" class="photo-content">
+				<img src="serve.png" alt="serve Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+				This type of serve is usually executed when you want the shuttle to land at the back end of the court.
+				A good high serve must have the shuttle dropping steeply downwards at the back end of the court.
+				<br>
+				<br>
+				A high serve will prevent your opponent from executing a strong smash.
+				Instead, a lob or a drop is more expected from your opponent 
+				<br>
+				(unless they can do a jump smash).
+				<br>
+				<br>
+				Try to serve the shuttlecock to your opponent’s backhand area. 
+				<br>
+				The objective is to force your opponent to use his backhand. 
+				<br>
+				This is because most badminton players, even world class player, 
+				<br>
+				have weaker backhands. 
+				<br>
+				(compared to their forehands).
+				</p>
+			</div>
+		</div>
+		<p><center>2.The Low Badminton Serve</center></p>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="low.jpg" alt="low serve Photo" class="photo-content">
+				<img src="serve1.jpg" alt="serve1 Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+					The low serve is used when you want the shuttlecock to land in front of the court 
+					<br>
+					(in front of your opponent).
+					<br><br>
+					A GOOD low serve will have the shuttlecock flying JUST ABOVE THE NET.
+					If not, your opponent will have the chance to dash forward and smash the shuttle down to you.
+					<br>
+					<br>
+					A low serve, when executed beautifully, prevents your opponent from making an offensive shot.
+					Unlike the high serve, you can let the shuttle drop anywhere in front 
+					<br>
+					(forehand area or backhand area of your opponent).
+					<br>
+					<br>
+					Neither makes a difference because it does not disrupt your opponent’s footwork.
+				</p>
+			</div>
+		</div>
+		<hr>
+        <p><center>Badminton Stance</center></p>
+        <hr>
+		<p><center>What’s a badminton stance?</center></p>
+			<p>
+			<center>
+				It is the way you stand when retrieving certain shots from your opponent.
+				This may be your first time hearing of this term. So far I have not seen any online badminton resource that covers this topic. 
+				But I thought it’s good information to share with you especially if you want to improve your games.
+				<br>
+				<br>
+				Basically there’re 3 types of badminton stances, They are:
+				<br>
+				<br>
+				Attacking Stance
+				<br>
+				Defensive Stance
+				<br>
+				Net Stance
+				<br>
+				<br>
+				Using the correct stance to retrieve your opponent’s shots will definitely give you an advantage in a rally.
+			</center>
+			</p>
+		<hr>
+		<p><center>1. Attacking Stance</center></p>
+			<div class="image-container" style="margin-bottom: 10px;">
+				<div class="image">
+					<img src="attack.jpg" alt="attack Photo" class="photo-content">
+				</div>
+				<div class="image-text">
+					<p>
+						You’ll need to use this stance whenever you hit an overhead forehand stroke.<br><br>
+
+						To get into the attacking stance,<br><br>
+
+						Turn your body facing the side of the court.<br>
+						Place your racket leg behind; your non-racket leg forward.<br>
+						Both legs should be shoulder width apart.<br>
+						Raise your racket and non-racket arm<br><br>
+						Hitting forehand strokes via the attacking stance enables you to hit powerful shots. 
+						It also enables you to recover quickly after you perform your shot.<br><br>
+
+						When to use?<br>
+
+						Whenever your opponent lifts or clear the shuttle high up to you, move towards the shuttle and adopt the attacking stance.	
+					</p>
+				</div>
+			</div>
+		<br>
+		<p><center>2. Defensive stance</center></p>
+			<div class="image-container" style="margin-bottom: 10px;">
+				<div class="image">
+					<img src="defense.jpg" alt="defense Photo" class="photo-content">
+				</div>
+				<div class="image-text">
+					<p>
+						The key to strong defense is to retrieve your opponent’s smash via the defensive stance.<br><br>
+						To get into the defensive stance,<br><br>
+						Face your body to the front of the court.<br>
+						Place your racket in front of you, around waist height, and pointing slightly forward.<br>
+						Raise your non-racket arm for better balance.<br>
+						When you’re on a defensive stance, you can cover wider angles.<br><br>
+						For example, you’ll find it a lot
+						easier to retrieve smashes hit to your body, left hand side, or right hand side.<br><br>
+						When to use?<br>
+						Whenever you hit a High Clear or perform a High Serve, move to your base position and adopt the defensive stance. 
+						Ideally, you want to be at your base position before your opponent hits the attacking shot.<br>
+						Just in case you want more, here’s a page on badminton defense.
+					</p>
+				</div>
+			</div>
+		<br>
+		<p><center>3. Net Stance</center></p>
+			<div class="image-container" style="margin-bottom: 10px;">
+				<div class="image">
+					<img src="net.jpg" alt="net Photo" class="photo-content">
+				</div>
+				<div class="image-text">
+					<p>
+						The net stance enables you to take the shuttle at the highest point when you’re at the net.  
+						When exchanging net shots, every millisecond counts! So make sure you take the shuttle as early as possible.<br><br>
+
+						To get into the net stance,<br><br>
+
+						Place your racket foot forward; non-racket foot at the back.<br>
+						Place your racket in front of your body, slightly above waist height.<br>
+						Raise your non-racket arm for body balance.<br>
+						Place your body weight slightly forward and get ready to pounce forward.<br><br>
+						When to use?<br>
+
+						Normally the only time you need to adopt the net stance is after you perform a Tumbling Net Shot.<br>
+
+						Your body’s posture will naturally be on the badminton net stance after you hit the tumbling net shot.
+						So STAY THERE and be ready to pounce forward to perform the net kill if your opponent hits a net shot.
+					</p>
+				</div>
+			</div>
+		<hr>
+        <p><center>Basic Badminton Shots</center></p>
+        <hr>
+		<p>
+			<center>
+				When you are familiar with the badminton basics, you can start learning some basic badminton shots.
+				<br>
+				These shots are sufficient for you to win rallies in a beginner’s game.
+			</center>
+		</p>
+		<hr>
+		<p><center>Defensive High Clear/lob</center></p>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="gclear.jpg" alt="gclear Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+					Lobbing is mainly used as a defensive shot. 
+					<br>
+					When you’re out of position, hit the high clear/lob to ‘buy’ yourself time to recover. 
+					Learn the techniques to execute a badminton clear/lob.
+					<br>
+					<br>
+				</p>
+			</div>
+		</div>
+		<br>
+		<p><center>Drop Shots</center></p>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="drop.jpg" alt="drop Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+					Make sure you have a variation of shots in your games. Drop shots are perfect to variate the pace of the rally.<br><br>
+				</p>
+			</div>
+		</div>
+		<p><center>Smashing</center></p>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="smash.jpg" alt="smash Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+					Rallies are often put away with the smash. It is the most powerful shot in badminton — learn the correct smashing technique… and executing a smash with power will be easy.<br><br>
+				</p>
+			</div>
+		</div>
+		<p><center>Net Play</center></p>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<img src="netplay.jpg" alt="netplay Photo" class="photo-content">
+			</div>
+			<div class="image-text">
+				<p>
+					Dominate the front area of the court by having good net playing skills. Learn techniques such as the tumbling net shot, net kill, and net lift.
+				</p>
+			</div>
+		</div>
+		<hr>
+	</div>
+
+  <!-- Footer -->
+    <div class="footer">
+        <img src="logo.png" alt="Footer Logo">
+        <div class="contact">
+            <p>
+				If you have any questions or inquiries, 
+				<br>feel free to get in touch with us:
+				<br>Email: arvinjohnalamis@su.edu.ph
+				<br>Phone: 09606772879
+				<br>Address: Purok Talong, Tabuc-tubig, Dumaguete City, Negros Oriental
+			</p>
+        </div>
+        <div class="references">
+            <p>			
+				References and Copyrights:
+				<br>
+				<a href="https://masterbadminton.com">www.masterbadminton.com</a>
+				<br>
+				<a href="https://wikipedia.com">www.wikipedia.com</a>
+				<br>
+				<a href="https://www.youtube.com/watch?v=BJuJbdjRzIc">&copy; Red Bull</a>
+				<br>
+				<a href="https://sportsmatik.com/">&copy; Sportsmatik</a>
+				<br>
+				<a href="homepage2.html">&copy; 2023 ShuttleCraze</a>
+			</p>
+		</div>
+    </div>
+</body>
+</html>

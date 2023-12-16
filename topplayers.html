@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHUTTLECRAZE</title>
+    <link rel="stylesheet" href="php.cs">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/35f1227a10.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Bebas Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+        }
+
+        h1, h2 {
+            font-family: 'Nexa Heavy', sans-serif;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar a {
+            font-size: 20px;
+            float: right;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 20px 10px; /* Adjusted padding for smaller screens */
+            text-decoration: none;
+            margin-right: 16px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+		
+		.navbar a:nth-child(3) {
+			margin-right: 16px; /* Adjusted margin for the new button */
+		}
+
+        .dropdown-search {
+			font-family: 'Nexa Heavy', sans-serif;
+			color: white;
+			font-size: 25px;
+		}
+
+        /* Logo and Name Styles */
+        .logo-container {
+            font-size: 40px; /* Adjusted font size for smaller screens */
+            float: left;
+            padding: 0px 10px; /* Adjusted padding for smaller screens */
+        }
+
+        .logo {
+            width: 40px; /* Adjusted logo size for smaller screens */
+            height: auto;
+        }
+
+        .name {
+            color: white;
+            font-weight: bold;
+            margin-left: 5px; /* Adjusted margin for smaller screens */
+            font-size: 14px; /* Adjusted font size for smaller screens */
+            vertical-align: middle;
+        }
+
+        /* Search Box Styles */
+        .search-container {
+            float: right;
+            margin-top: 20px; /* Adjusted margin for smaller screens */
+            margin-right: 10px; /* Adjusted margin for smaller screens */
+            
+        }
+
+        .search-input {
+            padding: 6px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Photo Styles */
+        .photo-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .photo {
+            width: 100%;
+            height: auto; /* Changed height to auto for responsiveness */
+        }
+
+        .photo-text {
+            font-size: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            padding: 10px;
+            background: none;
+        }
+
+        .highlight {
+            color: white;
+        }
+
+        /* Video Styles */
+        .video {
+            width: 100%;
+        }
+
+        /* Page Content Styles */
+        .content {
+			font-family: 'Nexa Heavy', sans-serif;
+            margin-top: 20px;
+            padding: 20px;
+            color: white;
+			font-size: 40px;
+			
+        }
+		
+		.text2 {
+			font-family: 'Nexa Heavy', sans-serif;
+			color: white;
+			font-size: 30px;
+		}
+		
+        .bgblack {
+            border: 2px solid white;
+            padding: 5px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        .about {
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .footer img {
+            width: 80px; /* Adjusted image size for smaller screens */
+            height: auto;
+        }
+
+        .footer .contact {
+            text-align: left;
+			font-family: 'Nexa Heavy', sans-serif;
+            max-width: 375px; /* Set maximum width for better responsiveness */
+        }
+		
+		.footer .references {
+			text-align: left;
+			font-family: 'Nexa Heavy', sans-serif;
+			max-width: 375px; /* Set maximum width for better responsiveness */
+        }
+		
+		.content img.photo-content {
+            width: 100%; /* Set the default width for responsiveness */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 650px; /* Set the maximum width for larger screens */
+            margin: 0 auto; /* Center the image */
+            display: block; /* Remove default inline spacing */
+        }
+
+        /* New styles for the added images and text */
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+			margin-left: 50px;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .image-text {
+            font-size: 30px;
+            color: white;
+            max-width: 60%;
+        }
+
+        .image {
+            width: 40%;
+            margin-bottom: 20px;
+        }
+
+        /* Media Queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .navbar a {
+                font-size: 16px;
+                padding: 15px 8px;
+            }
+
+            .logo-container {
+                font-size: 24px;
+                padding: 0px 8px;
+            }
+
+            .logo {
+                width: 30px;
+            }
+
+            .name {
+                margin-left: 5px;
+                font-size: 12px;
+            }
+
+            .search-container {
+                margin-top: 10px;
+                margin-right: 5px;
+            }
+
+            .photo-text {
+                font-size: 24px;
+                padding: 5px;
+            }
+
+            .footer img {
+                width: 60px;
+            }
+
+            .image {
+                width: 100%;
+            }
+
+            .image-text {
+                font-size: 24px;
+            }
+			
+			.content img.photo-content {
+                max-width: 100%; /* Adjust the maximum width for smaller screens */
+            }
+        }
+		
+		a:link {
+			color: white;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:visited {
+			color: white;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #E6CC00;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		a:active {
+			color: #E6CC00;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		
+    </style>
+</head>
+<body>
+    <script src="search.js"></script>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span style="color:white;font-weight:bold">SHUTTLE<span style="color:#E6CC00;font-weight:bold">CRAZE</span>
+        </div>
+        <a href="php.html">CONTACT</a>
+        <a href="history2.html">HISTORY</a>
+        <a href="topplayers.html">TOP PLAYERS</a><!-- Add the TOP PLAYERS button here -->
+        <a href="equipments2.html">EQUIPMENTS</a>
+        <a href="basics2.html">BASICS</a>
+        <a href="homepage2.html">HOME</a>
+    </div>
+     <!-- Photo with Text -->
+    <div class="photo-container">
+        <img src="fullsize3.jpg" alt="Your Photo" class="photo">
+        <div class="photo-text">
+            <span style="color:black;font-weight:bold"><br>TOP PLAYERS</span>
+        </div>
+    </div>
+
+	<div class="dropdown-search">
+        <center>
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div id="myDropdown" class="dropdown-content-search">
+                    <input type="text" placeholder="Search Player..." id="myInput" onkeyup="filterFunction()">
+                    <!-- Search options -->
+                    
+                    <a href="Lin.html">Lin Dan</a>
+                    <a href="Li.html">Li Xuerui</a>
+                    <a href="taufik.html">Taufik Hidayat</a>
+                    <a href="zhang.html">Zhang Ning</a>
+                    <a href="lee.html">Lee Chong Wei</a>
+                    <script src="search.js"></script>
+                </div>
+        </center>
+     </div>
+
+     <!-- Page Content -->
+	 <div class="content">
+		<hr>
+        <p>Top Badminton Players of All Time</p>
+        <hr>
+        <div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<a href="Lin.html"><img src="lin.jpg" alt="lin Photo" class="photo-content"></a>
+			</div>
+			<div class="image-text">
+				<p>
+					1. Lin Dan (China): Lin Dan, also known as "Super Dan," is often regarded as one of the greatest male badminton players in history.
+					He has won two Olympic gold medals, five World Championships, and numerous other titles.
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<a href="Li.html"><img src="li.jpg" alt="li Photo" class="photo-content"></a>
+			</div>
+			<div class="image-text">
+				<p>
+					2. Li Xuerui (China): Li Xuerui is a highly accomplished female badminton player who won the Olympic gold medal in women's singles at the 
+					2012 London Olympics and several other major championships during her career.
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<a href="taufik.html"><img src="taufik.jpg" alt="taufik Photo" class="photo-content"></a>
+			</div>
+			<div class="image-text">
+				<p>
+					3. Taufik Hidayat (Indonesia): Taufik Hidayat is an Indonesian legend in men's singles badminton. 
+					He won the Olympic gold medal in 2004 and the World Championship in 2005, making him one of the sport's all-time greats.
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<a href="zhang.html"><img src="zhang.jpg" alt="zhang Photo" class="photo-content"></a>
+			</div>
+			<div class="image-text">
+				<p>
+					4. Zhang Ning (China): Zhang Ning is one of the most successful female badminton players. 
+					She won the Olympic gold medal in women's singles in 2004 and 2008, in addition to multiple World Championships and All England titles.
+				</p>
+			</div>
+		</div>
+		<hr>
+		<div class="image-container" style="margin-bottom: 10px;">
+			<div class="image">
+				<a href="Chong.html"><img src="chong.jpg" alt="chong Photo" class="photo-content"></a>
+			</div>
+			<div class="image-text">
+				<p>
+					5. Lee Chong Wei (Malaysia): is the best Malaysian badminton player of all time. No player in Malaysia has been that successful ever.<br>
+					Lee was ranked 1st for 199 weeks in a row, from August from 21 August 2008 to 14 June 2012. 
+					<br>
+					<br>
+					Here is the list of his trophies:
+					<br>
+					<br>
+					Five times Commonwealth champion;
+					<br>
+					Two times Asian championship winner;
+					<br>
+					One time Southeast Asia champion;
+					<br>
+					Three times silver medalist in the Olympic Games;
+					<br>
+					Three silver medals and one bronze medal in the World Championships.
+				</p>
+			</div>
+		</div>
+		<hr>
+	 
+	 </div>
+	 
+	 <!-- Footer -->
+    <div class="footer">
+        <img src="logo.png" alt="Footer Logo">
+        <div class="contact">
+            <p>
+				If you have any questions or inquiries, 
+				<br>feel free to get in touch with us:
+				<br>Email: arvinjohnalamis@su.edu.ph
+				<br>Phone: 09606772879
+				<br>Address: Purok Talong, Tabuc-tubig, Dumaguete City, Negros Oriental
+			</p>
+        </div>
+        <div class="references">
+            <p>			
+				References and Copyrights:
+				<br>
+				<a href="https://masterbadminton.com">www.masterbadminton.com</a>
+				<br>
+				<a href="https://wikipedia.com">www.wikipedia.com</a>
+				<br>
+				<a href="https://www.youtube.com/watch?v=BJuJbdjRzIc">&copy; Red Bull</a>
+				<br>
+				<a href="https://sportsmatik.com/">&copy; Sportsmatik</a>
+				<br>
+				<a href="homepage2.html">&copy; 2023 ShuttleCraze</a>
+			</p>
+		</div>
+    </div>
+</body>
+</html>
+

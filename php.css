@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+
+
+@font-face {
+    font-family: 'Material Symbols Outlined';
+    font-style: normal;
+    font-weight: 100 700;
+    src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v153/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2) format('woff2');
+  }
+  
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+  }
+  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Young Serif', serif;
+    text-shadow: 2px 2px 5px rgb(255, 0, 0);
+    background-color: #f2f2f2;
+    color: #f2d898;
+    background-image: url("mythosbgupdatenoverlay.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+/* Header Styles */
+header {
+    background-color: #15141C;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.logo img {
+    display: block;
+    margin-left: 50px;
+    margin-right: 70px;
+    max-width: 100%;
+}
+
+/* Updated CSS to center align navigation items */
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto; /* Center the navbar */
+    padding: 0 20px;
+    display: flex;
+    justify-content: center; /* Center align items horizontally */
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center align items horizontally */
+    align-items: center;
+}
+
+li {
+    font-size: 25px;
+    margin-right: 15px;
+    color: #f2d898;
+}
+
+li:hover {
+    background-color: black;
+    padding: 0.1px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    transition: transform .2s;
+    padding: 7px;
+}
+
+a:hover{
+    transform: scale(1.3);
+}
+
+/* Main Content Styles */
+.main-content {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    max-width: 1200px;
+    padding: 40px 40px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.main-content img {
+    margin-bottom: 25px;
+}
+
+.main-content p {
+    font-size: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 20px;
+    margin: 20px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #15141C;
+    color: #DF8429;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo img {
+        margin-bottom: 20px;
+    }
+
+    ul {
+        margin-top: 20px;
+        justify-content: center; /* Center align items */
+    }
+
+    ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .main-content {
+        padding: 20px 10px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    color: antiquewhite;
+    background-color: #15141C;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    font-size: 20px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    text-transform: uppercase;
+    background-color: #09090c;
+}
+
+table {
+    width: auto;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+}
+
+th {
+    height: auto;
+    background-color: #15141C;
+    color: #f2d898;
+    padding: 15px;
+}
+
+td {
+    padding: 15px;
+}
+
+/* Updated styles for search bar */
+.dropdown-search {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.dropdown-content-search {
+    display: none;
+    position: absolute;
+    background-color: #15141C;
+    width: 180px;
+    z-index: 1;
+    top: 0;
+    right: 0; /* Position relative to the parent element */
+    transform: translateX(calc(100% + 1px)); /* Adjust distance from the emoji */
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    z-index: 1;
+    text-align: center; /* Align the content to the center */
+}
+
+.dropdown-content-search input {
+    width: calc(100% - 16px);
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.dropdown-content-search a {
+    color: #f6e0a9;
+    padding: 8px 8px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-search:hover .dropdown-content-search {
+    display: block;
+    text-transform: uppercase;
+    background-color: white;
+}
+
+.dropbtn {
+    font-size: 24px; 
+    background-color: #15141C;
+    color: #f4dea9;
+    padding: 16px;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+/* Updated styles for search input */
+.searchInput {
+    position: absolute;
+    right: -250px; /* Adjust this value as needed */
+    top: 0;
+    display: none;
+}
+.container {
+    overflow: hidden;
+  }
+  
+  .filterDiv {
+    float: left;
+    background-color: #DF8429;
+    color: #ffffff;
+    width: 200px;
+    min-width: 200px;
+    max-width: 500px;
+    line-height: 20px;
+    padding: 15px;
+    text-align: center;
+    margin: 2px;
+    display: none; /* Hidden by default */
+  }
+  
+  /* The "show" class is added to the filtered elements */
+  .show {
+    display: block;
+  }
+  
+  /* Style the buttons */
+  .btn {
+    font-family: 'Young Serif', serif;
+    font-size: 16px;
+    min-width: 100px;
+    width: 200px;
+    max-width: 300px;
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  /* Add a light grey background on mouse-over */
+  .btn:hover {
+    background-color: #DF8429;
+  }
+  
+  /* Add a dark background to the active button */
+  .btn.active {
+    background-color: #15141C;
+    color: white;
+  }
+
+  #rcornerschoice {
+    border-radius: 25px;
+    padding: 20px; 
+    width: 200px;
+  }
+
+  #rcornersfilter {
+    border-radius: 50px;
+    padding: 20px; 
+    width: 200px;
+  }
+  
+  #rcorners {
+    border-radius: 15px;
+    padding: 20px; 
+    width: 200px;
+  }

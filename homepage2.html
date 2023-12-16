@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHUTTLECRAZE</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/35f1227a10.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: 'Bebas Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black; /* Set the background color to black */
+            color: white; /* Set text color to white */
+        }
+        
+        h1, h2 {
+            font-family: 'Nexa Heavy', sans-serif;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            font-size: 20px;
+            float: right;
+            display: block;
+            color: white; /* Set text color to white */
+            text-align: center;
+            padding: 20px 10px;
+            text-decoration: none;
+            margin-right: 16px; /* Adjusted margin between buttons */
+			border-radius: 10px;
+			transition: background-color 0.3s ease;
+		}
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+		
+		.navbar a:nth-child(3) {
+			margin-right: 16px; /* Adjusted margin for the new button */
+		}
+
+        /* Logo and Name Styles */
+        .logo-container {
+            font-size: 40px;
+            float: left;
+            padding: 0px 10px;
+        }
+
+        .logo {
+            width: 40px; /* Adjust the logo size as needed */
+            height: auto;
+        }
+
+        .name {
+            color: white;
+            font-weight: bold;
+            margin-left: 5px;
+            font-size: 14px;
+            vertical-align: middle;
+        }
+
+        /* Search Box Styles */
+        .search-container {
+            float: right;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+
+        .search-input {
+            padding: 6px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Photo Styles */
+        .photo-container {
+            position: relative;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .photo {
+            width: 100%;
+            height: auto;
+        }
+
+        .photo-text {
+            font-size: 80px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: black; /* Set text color to black */
+            padding: 10px;
+            background: none;
+        }
+
+        .highlight {
+            color: white; /* Set text color to white */
+        }
+
+        /* Video Styles */
+        .video {
+            width: 100%;
+        }
+
+        /* Page Content Styles */
+        .content {
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .bgblack {
+            border: 2px solid white; /* Set border color to white */
+            padding: 5px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        .about {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+        }
+
+        .footer img {
+            width: 80px; /* Adjusted image size for smaller screens */
+            height: auto;
+        }
+
+        .footer .contact {
+            text-align: left;
+			font-family: 'Nexa Heavy', sans-serif;
+            max-width: 375px; /* Set maximum width for better responsiveness */
+        }
+		
+		.footer .references {
+			text-align: left;
+			font-family: 'Nexa Heavy', sans-serif;
+			max-width: 375px; /* Set maximum width for better responsiveness */
+        }
+		
+		a:link {
+			color: white;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:visited {
+			color: white;
+			background-color: transparent;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #E6CC00;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		a:active {
+			color: #E6CC00;
+			background-color: transparent;
+			text-decoration: underline;
+		}
+		
+		/* Media Queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .navbar a {
+                font-size: 16px;
+                padding: 15px 8px;
+            }
+
+            .logo-container {
+                font-size: 24px;
+                padding: 0px 8px;
+            }
+
+            .logo {
+                width: 30px;
+            }
+
+            .name {
+                margin-left: 5px;
+                font-size: 12px;
+            }
+
+            .search-container {
+                margin-top: 10px;
+                margin-right: 5px;
+            }
+
+            .photo-text {
+                font-size: 24px;
+                padding: 5px;
+            }
+
+            .footer img {
+                width: 60px;
+            }
+
+            .image {
+                width: 100%;
+            }
+
+            .image-text {
+                font-size: 24px;
+            }
+			
+			.content img.photo-content {
+                max-width: 100%; /* Adjust the maximum width for smaller screens */
+            }
+        }
+		
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="seasrch-box">
+        </div>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span style="color:white;font-weight:bold">SHUTTLE<span style="color:#E6CC00;font-weight:bold">CRAZE</span>
+        </div>
+        <a href="php.html">CONTACT</a>
+        <a href="history2.html">HISTORY</a>
+        <a href="topplayers.html">TOP PLAYERS</a><!-- Add the TOP PLAYERS button here -->
+        <a href="equipments2.html">EQUIPMENTS</a>
+        <a href="basics2.html">BASICS</a>
+        <a href="homepage2.html">HOME</a>
+    </div>
+
+    <!-- Photo with Text -->
+    <div class="photo-container">
+        <img src="fullsize3.jpg" alt="Your Photo" class="photo">
+        <div class="photo-text">
+            <span style="color:black;font-weight:bold"><br>WELCOME TO <span style="color:black;font-weight:bold"><br>SHUTTLE<span style="color:#E6CC00;font-weight:bold">CRAZE</span> <br><span style="color:black;font-weight:bold">: A PASSION FOR <br>THE SHUTTLECOCK</span></span></span>
+        </div>
+    </div>
+	
+    <br>
+	
+    <div class="about">
+        <h1>About Our Website</h1>
+        <h2>
+			Welcome to ShuttleCraze - Where Badminton Takes Flight!
+		<br>
+		<br>
+           At ShuttleCraze, we're all about celebrating the exhilarating sport of badminton. Whether you're a seasoned pro or just getting started, our website is your go-to destination for all things badminton.
+           Explore tips, Basic rules, Gear recommendations, and the History of badminton.
+		   <br>
+           Join us in the world of ShuttleCraze, where the shuttlecock dances, and the passion soars. Let's elevate your badminton game together!
+        </h2>
+    </div>
+	
+	<br>
+	
+    <!-- Video -->
+    <video class="video" controls>
+        <source src="badmint.mp4" type="video/mp4">
+    </video>
+
+    <!-- Footer -->
+    <div class="footer">
+        <img src="logo.png" alt="Footer Logo">
+        <div class="contact">
+            <p>
+				If you have any questions or inquiries, 
+				<br>feel free to get in touch with us:
+				<br>Email: arvinjohnalamis@su.edu.ph
+				<br>Phone: 09606772879
+				<br>Address: Purok Talong, Tabuc-tubig, Dumaguete City, Negros Oriental
+			</p>
+        </div>
+        <div class="references">
+            <p>			
+				References and Copyrights:
+				<br>
+				<a href="https://masterbadminton.com">www.masterbadminton.com</a>
+				<br>
+				<a href="https://wikipedia.com">www.wikipedia.com</a>
+				<br>
+				<a href="https://www.youtube.com/watch?v=BJuJbdjRzIc">&copy; Red Bull</a>
+				<br>
+				<a href="https://sportsmatik.com/">&copy; Sportsmatik</a>
+				<br>
+				<a href="homepage2.html">&copy; 2023 ShuttleCraze</a>
+			</p>
+		</div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
